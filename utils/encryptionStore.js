@@ -6,11 +6,16 @@ const { Buffer } = require('buffer')
 const APIKeyPair = new Map()
 const authorizedDevices = new Map()
 
+const Action = require('../services/gunDB/action-constants')
+const Event = require('../services/gunDB/event-constants')
+
 const nonEncryptedEvents = [
   'ping',
   'disconnect',
   'IS_GUN_AUTH',
-  'SET_LAST_SEEN_APP'
+  'SET_LAST_SEEN_APP',
+  ...Object.values(Action),
+  ...Object.values(Event)
 ]
 
 const Encryption = {
