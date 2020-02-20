@@ -11,7 +11,7 @@ const pubToAddress = {}
 const listeners = new Set()
 
 listeners.add(() => {
-  console.log(`pubToAddress: ${JSON.stringify(pubToAddress, null, 4)}`)
+  ;(() => {})(`pubToAddress: ${JSON.stringify(pubToAddress, null, 4)}`)
 })
 
 const notify = () => listeners.forEach(l => l())

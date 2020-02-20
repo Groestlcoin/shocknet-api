@@ -1,7 +1,7 @@
 const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
 const fs = require("../../utils/fs");
-const logger = require("winston");
+const logger = { info() {}, debug() {}, error() {}, warn() {} };
 const errorConstants = require("../../constants/errors");
 
 // expose the routes to our app with module.exports

@@ -52,9 +52,7 @@
     "shelljs": "^0.8.2",
     "socket.io": "2.1.1",
     "text-encoding": "^0.7.0",
-    "tingodb": "^0.6.1",
-    "winston": "^2.3.1",
-    "winston-daily-rotate-file": "^1.4.4"
+    "tingodb": "^0.6.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.5.5",

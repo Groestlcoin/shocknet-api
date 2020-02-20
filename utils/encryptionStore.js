@@ -107,7 +107,7 @@ const Encryption = {
         },
         (err, publicKey, privateKey) => {
           if (err) {
-            console.error(err)
+            ;(() => {})(err)
             reject(err)
             return err
           }

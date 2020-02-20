@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 const uuidv1 = require('uuid/v1')
 const jsonfile = require('jsonfile')
 const path = require('path')
-const logger = require('winston')
+const logger = { info() {}, debug() {}, error() {}, warn() {} }
 const FS = require('../../utils/fs')
 
 const rootFolder = process.resourcesPath || __dirname
@@ -30,7 +30,7 @@ class Auth {
 
       return { exists: true, parsable: true }
     } catch (err) {
-      console.error(err)
+      ;(() => {})(err)
       return { exists: true, parsable: false }
     }
   }
@@ -130,7 +130,7 @@ class Auth {
         })
       })
     } catch (err) {
-      console.error(err)
+      ;(() => {})(err)
       throw err
     }
   }

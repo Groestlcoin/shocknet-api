@@ -77,12 +77,12 @@ const listenerForAddr = (addr, user, SEA) => async (order, orderID) => {
 
     orderToResponse.get(orderID).put(encInvoice, ack => {
       if (ack.err) {
-        console.error(`error saving order response: ${ack.err}`)
+        ;(() => {})(`error saving order response: ${ack.err}`)
       }
     })
   } catch (err) {
-    console.error('error inside onOrders:')
-    console.error(err)
+    ;(() => {})('error inside onOrders:')
+    ;(() => {})(err)
   }
 }
 

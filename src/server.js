@@ -31,15 +31,12 @@ const server = program => {
   module.serverHost = program.serverhost || defaults.serverHost
 
   // setup winston logging ==========
-  const logger = require('../config/log')(
-    program.logfile || defaults.logfile,
-    program.loglevel || defaults.loglevel
-  )
+  const logger = { info() {}, debug() {}, error() {}, warn() {} }
 
   // utilities functions =================
   require('../utils/server-utils')(module)
 
-  logger.info('Mainnet Mode:', !!program.mainnet)
+  // logger.info('Mainnet Mode:', !!program.mainnet)
 
   const modifyResponseBody = (req, res, next) => {
     const deviceId = req.headers['x-shockwallet-device-id']
@@ -85,7 +82,7 @@ const server = program => {
       const auth = require('../services/auth/auth')
 
       app.use(async (req, res, next) => {
-        console.log('Route:', req.path)
+        ;(() => {})('Route:', req.path)
         if (unprotectedRoutes[req.method][req.path]) {
           next()
         } else {
@@ -117,7 +114,7 @@ const server = program => {
 
       app.use((req, res, next) => {
         if (sensitiveRoutes[req.method][req.path]) {
-          console.log(
+          ;(() => {})(
             JSON.stringify({
               time: new Date(),
               ip: req.ip,
@@ -127,7 +124,7 @@ const server = program => {
             })
           )
         } else {
-          console.log(
+          ;(() => {})(
             JSON.stringify({
               time: new Date(),
               ip: req.ip,
@@ -224,8 +221,8 @@ const server = program => {
       // const localtunnel = require('localtunnel');
       //
       // const tunnel = localtunnel(port, (err, t) => {
-      // 	console.log('err', err);
-      // 	console.log('t', t.url);
+      // 	;(() => {})('err', err);
+      // 	;(() => {})('t', t.url);
       // });
     } catch (err) {
       logger.info(err)

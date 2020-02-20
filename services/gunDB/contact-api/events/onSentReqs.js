@@ -28,7 +28,7 @@ const listeners = new Set()
 let currentReqs = []
 
 listeners.add(() => {
-  console.log(`new sent reqs: ${JSON.stringify(currentReqs)}`)
+  ;(() => {})(`new sent reqs: ${JSON.stringify(currentReqs)}`)
 })
 
 const getCurrentSentReqs = () => currentReqs
@@ -44,7 +44,7 @@ const react = debounce(() => {
   const pubToAvatar = Streams.getPubToAvatar()
   const pubToDN = Streams.getPubToDn()
 
-  console.log(
+  ;(() => {})(
     `pubToLastSentREqID: ${JSON.stringify(pubToLastSentReqID, null, 4)}`
   )
 

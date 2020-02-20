@@ -34,7 +34,7 @@ const setReceivedReqsMap = reqs => {
 }
 
 listeners.add(() => {
-  console.log(
+  ;(() => {})(
     `new received reqs: ${JSON.stringify(getReceivedReqs(), null, 4)}`
   )
 })
@@ -94,8 +94,8 @@ const listenerForAddr = addr => data => {
     }
   }
 
-  console.log('data for address: ' + addr)
-  console.log(JSON.stringify(data, null, 4))
+  ;(() => {})('data for address: ' + addr)
+  ;(() => {})(JSON.stringify(data, null, 4))
 
   react()
 }

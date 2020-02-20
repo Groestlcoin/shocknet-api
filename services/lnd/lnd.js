@@ -1,6 +1,6 @@
 // app/lnd.js
 
-const logger = require("winston");
+const logger = { info() {}, debug() {}, error() {}, warn() {} };
 
 // TODO
 module.exports = function(lightning) {

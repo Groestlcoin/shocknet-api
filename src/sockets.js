@@ -1,6 +1,6 @@
 // app/sockets.js
 
-const logger = require("winston");
+const logger = { info() {}, debug() {}, error() {}, warn() {} };
 
 module.exports = (
   /** @type {import('socket.io').Server} */

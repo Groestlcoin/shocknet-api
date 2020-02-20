@@ -74,7 +74,7 @@ const pubToEpub = async pub => {
 
     return epub
   } catch (err) {
-    console.log(err)
+    ;(() => {})(err)
     throw new Error(`pubToEpub() -> ${err.message}`)
   }
 }

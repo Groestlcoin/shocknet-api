@@ -7,7 +7,7 @@
 
 const Axios = require("axios");
 const Crypto = require("crypto");
-const logger = require("winston");
+const logger = { info() {}, debug() {}, error() {}, warn() {} };
 const httpsAgent = require("https");
 const responseTime = require("response-time");
 const uuid = require("uuid/v4");
@@ -159,7 +159,7 @@ module.exports = async (
           resolve(unlockResponse);
         });
       } catch (err) {
-        console.error(err);
+        ;(() => {})(err);
         if (err.message === "unknown service lnrpc.WalletUnlocker") {
           resolve({
             message: "Wallet already unlocked"
@@ -240,7 +240,7 @@ module.exports = async (
       req.body = JSON.parse(decryptedMessage);
       return next();
     } catch (err) {
-      console.error(err);
+      ;(() => {})(err);
       return res
         .status(401)
         .json(
@@ -251,7 +251,7 @@ module.exports = async (
 
   app.use(async (req, res, next) => {
     try {
-      console.log("Route:", req.path)
+      ;(() => {})("Route:", req.path)
 
       if (unprotectedRoutes[req.method][req.path]) {
         next();
@@ -347,10 +347,10 @@ module.exports = async (
       }
   
       const authorizedDevice = await Encryption.authorizeDevice({ deviceId, publicKey })
-      console.log(authorizedDevice)
+      ;(() => {})(authorizedDevice)
       return res.status(200).json(authorizedDevice)
     } catch (err) {
-      console.error(err)
+      ;(() => {})(err)
       return res.status(401).json({
         field: 'unknown',
         message: err
@@ -379,7 +379,7 @@ module.exports = async (
 
   app.post("/api/lnd/auth", async (req, res) => {
     try {
-      console.log("/api/lnd/auth Body:", req.body)
+      ;(() => {})("/api/lnd/auth Body:", req.body)
       const health = await checkHealth();
       const walletInitialized = await walletExists();
       // If we're connected to lnd, unlock the wallet using the password supplied
@@ -599,7 +599,7 @@ module.exports = async (
                         }
                       });
                     } catch (err) {
-                      console.error(err);
+                      ;(() => {})(err);
                       res.status(400).json({
                         field: "unknown",
                         errorMessage: sanitizeLNDError(err.message)
@@ -610,7 +610,7 @@ module.exports = async (
       
                 waitUntilFileExists(1);
               } catch (err) {
-                console.error(err);
+                ;(() => {})(err);
                 return res.status(500).json({
                   field: "unknown",
                   errorMessage: err
@@ -619,7 +619,7 @@ module.exports = async (
             }
           );
         } catch (err) {
-          console.error(err);
+          ;(() => {})(err);
           return res.status(500).json({
             field: "unknown",
             errorMessage: err
@@ -627,7 +627,7 @@ module.exports = async (
         }
       });
     } catch (err) {
-      console.error(err);
+      ;(() => {})(err);
       return res.status(500).json({
         field: "unknown",
         errorMessage: err

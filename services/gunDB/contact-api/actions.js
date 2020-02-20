@@ -479,20 +479,20 @@ const sendHandshakeRequest = async (recipientPublicKey, gun, user, SEA) => {
     throw new Error('Do not send a request to yourself')
   }
 
-  console.log('sendHR() -> before recipientEpub')
+  ;(() => {})('sendHR() -> before recipientEpub')
 
   /** @type {string} */
   const recipientEpub = await Utils.pubToEpub(recipientPublicKey)
 
-  console.log('sendHR() -> before mySecret')
+  ;(() => {})('sendHR() -> before mySecret')
 
   const mySecret = require('../Mediator').getMySecret()
-  console.log('sendHR() -> before ourSecret')
+  ;(() => {})('sendHR() -> before ourSecret')
   const ourSecret = await SEA.secret(recipientEpub, user._.sea)
 
   // check if successful handshake is present
 
-  console.log('sendHR() -> before alreadyHandshaked')
+  ;(() => {})('sendHR() -> before alreadyHandshaked')
 
   /** @type {boolean} */
   const alreadyHandshaked = await Utils.successfulHandshakeAlreadyExists(
@@ -503,7 +503,7 @@ const sendHandshakeRequest = async (recipientPublicKey, gun, user, SEA) => {
     throw new Error(ErrorCode.ALREADY_HANDSHAKED)
   }
 
-  console.log('sendHR() -> before maybeLastRequestIDSentToUser')
+  ;(() => {})('sendHR() -> before maybeLastRequestIDSentToUser')
 
   // check that we have already sent a request to this user, on his current
   // handshake node
@@ -514,7 +514,7 @@ const sendHandshakeRequest = async (recipientPublicKey, gun, user, SEA) => {
       .then()
   )
 
-  console.log('sendHR() -> before currentHandshakeAddress')
+  ;(() => {})('sendHR() -> before currentHandshakeAddress')
 
   const currentHandshakeAddress = await Utils.tryAndWait(gun =>
     gun
@@ -538,7 +538,7 @@ const sendHandshakeRequest = async (recipientPublicKey, gun, user, SEA) => {
 
     const lastRequestIDSentToUser = maybeLastRequestIDSentToUser
 
-    console.log('sendHR() -> before alreadyContactedOnCurrHandshakeNode')
+    ;(() => {})('sendHR() -> before alreadyContactedOnCurrHandshakeNode')
     /** @type {boolean} */
     const alreadyContactedOnCurrHandshakeNode = await Utils.tryAndWait(
       gun =>
@@ -558,7 +558,7 @@ const sendHandshakeRequest = async (recipientPublicKey, gun, user, SEA) => {
     }
   }
 
-  console.log('sendHR() -> before __createOutgoingFeed')
+  ;(() => {})('sendHR() -> before __createOutgoingFeed')
 
   const outgoingFeedID = await __createOutgoingFeed(
     recipientPublicKey,
@@ -566,7 +566,7 @@ const sendHandshakeRequest = async (recipientPublicKey, gun, user, SEA) => {
     SEA
   )
 
-  console.log('sendHR() -> before encryptedForUsOutgoingFeedID')
+  ;(() => {})('sendHR() -> before encryptedForUsOutgoingFeedID')
 
   const encryptedForUsOutgoingFeedID = await SEA.encrypt(
     outgoingFeedID,
@@ -587,7 +587,7 @@ const sendHandshakeRequest = async (recipientPublicKey, gun, user, SEA) => {
     mySecret
   )
 
-  console.log('sendHR() -> before newHandshakeRequestID')
+  ;(() => {})('sendHR() -> before newHandshakeRequestID')
   /** @type {string} */
   const newHandshakeRequestID = await new Promise((res, rej) => {
     const hr = gun

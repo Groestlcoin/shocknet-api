@@ -1,6 +1,6 @@
 /** @format */
 const uuidv1 = require('uuid/v1')
-const logger = require('winston')
+const logger = { info() {}, debug() {}, error() {}, warn() {} }
 const debounce = require('lodash/debounce')
 
 const Schema = require('../schema')
@@ -29,7 +29,7 @@ let pubToFeed = {}
 const getPubToFeed = () => pubToFeed
 
 feedsListeners.add(() => {
-  console.log(`new pubToFeed: ${JSON.stringify(getPubToFeed())}`)
+  ;(() => {})(`new pubToFeed: ${JSON.stringify(getPubToFeed())}`)
 })
 
 /** @param {Feeds} ptf */

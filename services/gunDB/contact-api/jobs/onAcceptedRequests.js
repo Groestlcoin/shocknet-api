@@ -26,7 +26,7 @@ const onAcceptedRequests = (user, SEA) => {
   const mySecret = require('../../Mediator').getMySecret()
 
   if (typeof mySecret !== 'string') {
-    console.log("Jobs.onAcceptedRequests() -> typeof mySecret !== 'string'")
+    ;(() => {})("Jobs.onAcceptedRequests() -> typeof mySecret !== 'string'")
     return
   }
 
@@ -155,7 +155,7 @@ const onAcceptedRequests = (user, SEA) => {
             })
         )
       } catch (err) {
-        console.warn(`Jobs.onAcceptedRequests() -> ${err.message}`)
+        ;(() => {})(`Jobs.onAcceptedRequests() -> ${err.message}`)
       }
     })
 }
