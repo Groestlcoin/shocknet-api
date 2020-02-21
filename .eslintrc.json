@@ -7,6 +7,8 @@
 
     "no-console": "off",
 
+    "no-empty-function": "off",
+
     "max-statements": "off",
 
     "global-require": "off",
