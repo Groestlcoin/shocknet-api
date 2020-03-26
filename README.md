@@ -14,7 +14,7 @@ For easy setup on your Laptop/Desktop, [a wizard is available here.](https://git
 #### Steps:
 1) Run [LND](https://github.com/lightningnetwork/lnd/releases) - *Example mainnet startup*:
 
- ```./lnd --bitcoin.active --bitcoin.mainnet --bitcoin.node=neutrino --neutrino.connect=neutrino.shock.network```
+ ```./lnd --groestlcoin.active --groestlcoin.mainnet --groestlcoin.node=neutrino --neutrino.connect=neutrino.shock.network```
 
 
 2) Download and Install API

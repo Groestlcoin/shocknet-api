@@ -39,12 +39,12 @@ module.exports = (mainnet = false) => {
     lndHost: "localhost:10009",
     lndCertPath: parsePath(`${lndDirectory}/tls.cert`),
     macaroonPath: parsePath(
-      `${lndDirectory}/data/chain/bitcoin/${network}/admin.macaroon`
+      `${lndDirectory}/data/chain/groestlcoin/${network}/admin.macaroon`
     ),
     dataPath: parsePath(`${lndDirectory}/data`),
     loglevel: "info",
     logfile: "shockapi.log",
-    lndLogFile: parsePath(`${lndDirectory}/logs/bitcoin/${network}/lnd.log`),
+    lndLogFile: parsePath(`${lndDirectory}/logs/groestlcoin/${network}/lnd.log`),
     lndDirPath: lndDirectory,
     peers: ["http://gun.shock.network:8765/gun"],
     tokenExpirationMS: 4500000
