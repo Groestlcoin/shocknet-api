@@ -12,7 +12,7 @@ const getLndDirectory = () => {
     return path.resolve(APPDATA, "../Local/Lnd");
   }
 
-  return homeDir + "/.lnd";
+  return homeDir + "/.lnd-grs";
 };
 
 const parsePath = (filePath = "") => {
