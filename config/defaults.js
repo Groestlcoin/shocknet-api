@@ -5,11 +5,11 @@ const homeDir = os.homedir();
 
 const getLndDirectory = () => {
   if (platform === "darwin") {
-    return homeDir + "/Library/Application Support/Lnd";
+    return homeDir + "/Library/Application Support/Lnd-grs";
   } else if (platform === "win32") {
     // eslint-disable-next-line no-process-env
     const { APPDATA = "" } = process.env;
-    return path.resolve(APPDATA, "../Local/Lnd");
+    return path.resolve(APPDATA, "../Local/Lnd-grs");
   }
 
   return homeDir + "/.lnd-grs";
